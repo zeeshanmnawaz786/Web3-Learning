@@ -16,7 +16,10 @@ const txObj = {
 };
 
 async function signTransaction() {
+  // sign transaction
   const signedTx = await web3.eth.accounts.signTransaction(txObj, PRIVATEKEY);
+
+  // broadcast transaction
   const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
   console.log(receipt.transactionHash);
 }
